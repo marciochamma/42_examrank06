@@ -205,17 +205,8 @@ int main (int argc, char **argv)
 				int read_bytes = recv(fd, buffer_read, 1023, 0);
 				if (read_bytes <= 0)
 				{
-					if (errno == EAGAIN || errno == EWOULDBLOCK)
-					{
-						// No data available, continue to the next iteration
-						continue;
-					}
-					else
-					{
-						// An actual error occurred, remove the client
-						remove_client(fd);
-						break;
-					}
+					remove_client(fd);
+					break;
 				}
 				buffer_read[read_bytes] = '\0';
 				msgs[fd] = str_join(msgs[fd], buffer_read);
