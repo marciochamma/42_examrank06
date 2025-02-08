@@ -24,7 +24,7 @@ char buffer_write[1024 * 2];
 
 fd_set read_set, write_set, current_set;
 
-int extract_message(char **buf, char **msg)
+int extract_message(char **buf, char **msg) // copy from main.c
 {
 	char	*newbuf;
 	int	i;
@@ -51,7 +51,7 @@ int extract_message(char **buf, char **msg)
 	return (0);
 }
 
-char *str_join(char *buf, char *add)
+char *str_join(char *buf, char *add) // copy from main.c
 {
 	char	*newbuf;
 	int		len;
@@ -164,8 +164,8 @@ int main (int argc, char **argv)
 
 	int sockfd = create_socket();
 
-	struct sockaddr_in servaddr;
-	bzero(&servaddr, sizeof(servaddr));
+	struct sockaddr_in servaddr; // copy from main.c
+	bzero(&servaddr, sizeof(servaddr)); 
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_addr.s_addr = htonl(2130706433);
 	servaddr.sin_port = htons(atoi(argv[1]));
