@@ -136,7 +136,7 @@ int create_socket(void)
 	return (max_fd);
 }
 
-void cleanup(void)
+void cleanup(void) // Not necessary for exam
 {
 	for (int fd = 0; fd <= max_fd; fd++)
 	{
@@ -148,7 +148,7 @@ void cleanup(void)
 	}
 }
 
-void handle_signal(int signal)
+void handle_signal(int signal) // Not necessary for exam
 {
 	(void)signal;
 	cleanup();
